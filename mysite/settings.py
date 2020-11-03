@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +52,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
+
+# 여기서 탬플릿 어디 있는지 알려줄수있다!(이상한 위치에있다면) airbnb 탬플릿 검색해보셈.. 내가 적은거!
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

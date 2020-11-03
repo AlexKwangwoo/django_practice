@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+# 여기서 정의하는 polls는 polls파일안에 모든내용이 polls안써도 urls부터 시작함!
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),

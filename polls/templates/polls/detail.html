@@ -1,0 +1,21 @@
+<h1>{{ question.question_text }}</h1>
+<h1>{{ question.pub_date }}</h1>
+{% comment %} question에는 위 두개의 자료를 들고있음! 
+    밑에는 question이 없다면 에러를 일으킴!
+{% endcomment %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'pollss:vote2277' question.id %}" method="post">
+  {% csrf_token %}
+  {% comment %}  csrf_token 는 털림(보안) 방지이다! {% endcomment %}
+  {% for choice in question.choice_set.all %}
+  {% comment %} _set을 쓰는경우는 일대 다에서.. 일이 포린키된쪽에서 가져올때 넣어야함!
+    즉 문제는 하나고 choice는 여러개인데 하나에서 여러개를 가져올때!(포린키 빌려줬으니)
+   {% endcomment %}
+   {% comment %} forloop.counter 는 루프돌때마다 하나하나씩 알아서 번호줌.. 
+   i = i+1와같은 존재 {% endcomment %}
+  <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+  <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}{{ choice.votes }}</label><br>
+  {% endfor %}
+  <input type="submit" value="Vote">
+</form>
