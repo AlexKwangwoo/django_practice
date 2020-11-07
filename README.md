@@ -1,3 +1,5 @@
+this is only for the practice for Django Basic
+
 1. type pipenv shell
 2. type python manage.py runserver
 3. 000818396, ab+koreanphone number
