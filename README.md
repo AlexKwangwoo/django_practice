@@ -1,4 +1,4 @@
-this is only for the practice for Django Basic
+This is only for the practice for Django Basic
 
 1. type pipenv shell
 2. type python manage.py runserver
